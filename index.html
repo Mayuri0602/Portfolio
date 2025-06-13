@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mayuri's Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <button class="toggle-btn" onclick="toggleDarkMode()">Toggle Dark Mode</button>
+
+  <header>
+    <img src="image_001.jpg" alt="My Profile" class="profile-pic" />
+    <h1 class="main-heading">Hi, I'm Mayuri !!</h1>
+    <p>Frontend + Backend (Python & SQL) Developer</p>
+    <div id="typewriter"></div>
+</header>
+
+
+  <section id="about">
+    <h2>About Me</h2>
+    <p>I'm passionate about building beautiful and functional websites using frontend technologies, and backend systems with Python and SQL.</p>
+  </section>
+
+  <section id="frontend">
+    <h2>Frontend Skills</h2>
+    <ul>
+      <li>HTML5, Semantic Tags</li>
+      <li>CSS3, Flexbox, Grid</li>
+      <li>JavaScript (ES6+)</li>
+      <li>Responsive Design</li>
+      <li>REST API Integration</li>
+    </ul>
+  </section>
+
+  <section id="python">
+    <h2>Python Skills</h2>
+    <ul>
+      <li>Functions, Loops, Conditions</li>
+      <li>OOP in Python</li>
+      <li>Working with Files & APIs</li>
+      <li>Basic Projects (e.g., CLI Tools)</li>
+    </ul>
+  </section>
+
+  <section id="sql">
+    <h2>SQL Skills</h2>
+    <ul>
+      <li>SELECT, INSERT, UPDATE, DELETE</li>
+      <li>JOINS (Inner, Left, Right)</li>
+      <li>GROUP BY, ORDER BY, HAVING</li>
+      <li>Subqueries and Nested Queries</li>
+    </ul>
+  </section>
+
+  <section id="projects">
+    <h2>Projects</h2>
+    <ul>
+      <li><strong>Portfolio Website</strong> – HTML, CSS, JS</li>
+      <li><strong>Weather App</strong> – JS + REST APIs</li>
+      <li><strong>Student Management System</strong> – Python + MySQL</li>
+    </ul>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <p>Email: <a href="mailto:mayurimaheshwari760@gmail.com">mayurimaheshwari760@gmail.com</a></p>
+    <p>GitHub: <a href="https://github.com/Mayuri0602" target="_blank">Mayuri0602</a></p>
+    <p>LinkedIn: <a href="https://www.linkedin.com/in/mayuri-somani-58617a332/" target="_blank">Mayuri Somani</a></p>
+  </section>
+
+  <script>
+    function toggleDarkMode() {
+      document.body.classList.toggle("dark-mode");
+    }
+
+    const typewriterText = [
+      "I love building websites 💻",
+      "Passionate about Python 🐍",
+      "SQL makes sense to me 📊",
+    ];
+
+    let index = 0, char = 0;
+
+    function type() {
+      const output = document.getElementById("typewriter");
+      if (char < typewriterText[index].length) {
+        output.innerHTML += typewriterText[index].charAt(char);
+        char++;
+        setTimeout(type, 80);
+      } else {
+        setTimeout(erase, 1500);
+      }
+    }
+
+    function erase() {
+      const output = document.getElementById("typewriter");
+      if (char > 0) {
+        output.innerHTML = typewriterText[index].substring(0, char - 1);
+        char--;
+        setTimeout(erase, 50);
+      } else {
+        index = (index + 1) % typewriterText.length;
+        setTimeout(type, 500);
+      }
+    }
+
+    type();
+  </script>
+</body>
+
+<footer>
+  <p>Made with ❤️ by Mayuri | &copy; 2025</p>
+</footer>
+
+</html>
